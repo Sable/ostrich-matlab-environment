@@ -24,6 +24,7 @@ else:
 
 run_script_dir = os.path.dirname(os.path.realpath(os.path.realpath(__file__)))
 env_dir = os.path.abspath(os.path.join(run_script_dir, lib_dir))
+common_dir = os.path.abspath(os.path.join(run_script_dir, 'common'))
 dir_name = os.path.abspath(os.path.dirname(args.file))
 file_name = os.path.basename(args.file)
 function_name = os.path.splitext(file_name)[0]
@@ -57,7 +58,7 @@ if run_options.has_key("matlab-jit"):
     else:
         run_option_string += "feature accel off;"
 
-runner_script = run_option_string + """cd('%s'); addpath('%s'); addpath('%s'); try %s(%s); exit(0); catch, ME = lasterror; fprintf(2, '%%s\\n', ME.message); exit(1); end"""%(dir_name, env_dir, dir_name, function_name,','.join(arguments))
+runner_script = run_option_string + """cd('%s'); addpath('%s'); addpath('%s'); addpath('%s'); try %s(%s); exit(0); catch, ME = lasterror; fprintf(2, '%%s\\n', ME.message); exit(1); end"""%(dir_name, env_dir, dir_name, common_dir, function_name,','.join(arguments))
 
 try:
     command = [desc["executable-path"]]
