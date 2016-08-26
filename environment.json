@@ -1,6 +1,6 @@
 {
     "type": "environment",
-    "short-name": "matlab-vm-2013a-jit",
+    "short-name": "matlab-vm-2014b-jit",
     "name": "MATLAB Virtual Machine",
     "version": "R2014b (8.4.0.150421) 64-bit (glnxa64)",
     "supported-languages": ["matlab"],
